@@ -41,3 +41,9 @@ if _name_ == "_main_":
     print("\nTriangle Pattern:")
     max_height = Solution.max_height_of_triangle(white, black)
     print(f"\nMaximum height of the triangle: {max_height}")
+    black = int(input("Enter the number of black balls: "))
+    
+    # Calculate and draw the triangle pattern
+    print("\nTriangle Pattern:")
+    max_height = Solution.max_height_of_triangle(white, black)
+    print(f"\nMaximum height of the triangle: {max_height}")
