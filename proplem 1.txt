@@ -1,0 +1,43 @@
+"""
+Giving 2 intgres black and white representing the count of colored balls.
+Retern the maximum high of the triangle.
+
+"""
+def max_height_of_triangle(white, black):
+        # Create a list N containing numbers from 1 up to max(white, black)
+        N = [i + 1 for i in range(max(white, black))]
+        
+        # Ensure white <= black for simplicity
+        if white > black:
+            white, black = black, white
+        
+        # Initialize res with the first two elements
+        res = [1, 2]
+        
+        # Calculate subsequent elements in res based on N
+        for i in range(2, len(N)):
+            res.append(res[i - 2] + N[i])
+        
+        # Determine the maximum height of the triangle
+ height = 0
+        for i in range(1, len(res)):
+            if res[i - 1] <= white and res[i] <= black:
+                height = i
+        
+        # Draw the triangle pattern
+        for row in range(1, height + 2):
+            if row % 2 == 1:
+                print("#" * row)
+            else:
+                print("*" * row)
+        
+        return height + 1
+# Input from user
+if _name_ == "_main_":
+    white = int(input("Enter the number of white balls: "))
+    black = int(input("Enter the number of black balls: "))
+    
+    # Calculate and draw the triangle pattern
+    print("\nTriangle Pattern:")
+    max_height = Solution.max_height_of_triangle(white, black)
+    print(f"\nMaximum height of the triangle: {max_height}")
