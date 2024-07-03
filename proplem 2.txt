@@ -1,0 +1,21 @@
+def get_matrix_dimension():
+    while True:
+        try:
+            n = int(input('Enter the number of positions in each dimension of the matrix (between 1 and 20): '))
+            if 1 <= n <= 20:
+                return n
+            else:
+                print('Invalid input. Please enter a number between 1 and 20.')
+        except ValueError:
+            print('Invalid input. Please enter a valid integer number.')
+def get_input_matrix(n):
+    return [input().split() for _ in range(n) if len(input().split()) == n]
+def rotate(matrix):
+    return [[matrix[j][i] for j in range(len(matrix)-1, -1, -1)] for i in range(len(matrix))]
+
+def print_matrix(matrix):
+    for row in matrix:
+        print(row)
+
+if __name__ == '__get_matrix_dimension__':
+   get_matrix_dimension()
